@@ -13,6 +13,32 @@ class MyFirstCipher
 }
 ```
 
+# Demo Scenario
+Here is an example of a real life situation. Bob wants to send Alice a secret message, he encrypts and signs his message. Alice then reads the message.
+
+```php
+    public function demo()
+    {
+        # Issue keys (would be stored in the database and retrieved as needed)
+        $bob   = $this->issueKeys();
+        $alice = $this->issueKeys();
+
+        # Encrypt a message from Bob to Alice
+        $cipher = $this->encrypt($alice->public, $bob->private, 'This is a test message');
+
+        # Sign the message and send
+        $bobSig    = $this->issueSignatureKeys();
+        $signature = $this->signMessage($cipher->cipher, $bobSig->private);
+
+        # Alice now verifies the message using the signature sent
+        if($this->verifySignature($signature, $bobSig->public))
+        {
+            # Decrypt the message that was also sent along with the signature and nonce
+            echo $this->decrypt($alice->private, $bob->public, $cipher->cipher, $cipher->nonce);
+        }
+    }
+```
+
 # Generating your keys
 In order to generate your key pair, you must use the `issueKeys()` method. Each user, or party, must have a key pair which is split down into public and private for ease of use.
 
@@ -132,29 +158,4 @@ class MyFirstCipher
         return $this->verifySignature($signature, $this->userOne['skp']->public);
     }
 }
-```
-
-# Everything compiled together
-Here is an example of a real life situation. Bob wants to send Alice a secret message, he encrypts and signs his message. Alice then reads the message.
-
-```php
-    public function demo()
-    {
-        # Encrypt a message from Bob to Alice
-        $bob   = $this->issueKeys();
-        $alice = $this->issueKeys();
-
-        $cipher = $this->encrypt($alice->public, $bob->private, 'This is a test message');
-
-        # Sign the message and send
-        $bobSig    = $this->issueSignatureKeys();
-        $signature = $this->signMessage($cipher->cipher, $bobSig->private);
-
-        # Alice now verifies the message
-        if($this->verifySignature($signature, $bobSig->public))
-        {
-            # Decrypt the message
-            echo $this->decrypt($alice->private, $bob->public, $cipher->cipher, $cipher->nonce);
-        }
-    }
 ```
