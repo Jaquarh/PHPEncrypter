@@ -5,9 +5,9 @@
  * @copyright (c) 2019 Kyle Jeynes, All Rights Reserved.
  */
 
-namespace Cipher\Ciphers;
+namespace Cipher\Cipher;
 
-trait Ciphers
+trait Cipher
 {
     /*---------------------------------------------------------------------------*/
     /*                           ENCRYPTION PKI                                  */
