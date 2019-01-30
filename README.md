@@ -1,6 +1,9 @@
 # PHPEncrypter
 PHPEncrypter is an open source library utilising LibSodium to encrypt data between parties and sign data.
 
+# Current Version
+1.0.2 - Added base64 mutual translator to allow for encryption of arrays and objects.
+
 # Installation
 [LibSodium Installation](http://php.net/manual/en/sodium.installation.php) requries enabling the extension in your php.ini configuration or by compiling your PHP source with the LibSodium configuration option.
 
