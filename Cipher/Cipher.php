@@ -1,8 +1,12 @@
 <?php
+
 /**
  * @author: Kyle Jeynes @ Iezon Solutions <okaydots@gmail.com>
  * @copyright (c) 2019 Kyle Jeynes, All Rights Reserved.
  */
+
+namespace Cipher\Ciphers;
+
 trait Ciphers
 {
     /*---------------------------------------------------------------------------*/
