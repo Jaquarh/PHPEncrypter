@@ -1,0 +1,23 @@
+{
+    "name": "jaquarh/phpencrypter",
+    "type": "project",
+    "description": "Encrypt and Sign data in PHP with ease",
+    "keywords": [
+        "encryption",
+        "jaquarh"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^5.4"
+    },
+    "require-dev": {},
+    "config": {},
+    "extra": {},
+    "autoload": {
+        "psr-4": {
+            "Cipher\\", "cipher/",
+        }
+    },
+    "autoload-dev": {},
+    "scripts": {}
+}
