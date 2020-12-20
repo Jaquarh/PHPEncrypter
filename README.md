@@ -11,6 +11,8 @@ composer require jaquarh/phpencrypter
 
 [LibSodium Installation](http://php.net/manual/en/sodium.installation.php) requries enabling the extension in your php.ini configuration or by compiling your PHP source with the LibSodium configuration option.
 
+As of PHP 7.2.0 this extension is bundled with PHP. For older PHP versions this extension is available via PECL.
+
 Once you have enabled the extension, you can now clone the repository. Simply create a class and use the Cipher.
 
 ```php
