@@ -15,7 +15,7 @@
     "extra": {},
     "autoload": {
         "psr-4": {
-            "Cipher\\", "cipher/",
+            "Cipher\\": "cipher/"
         }
     },
     "autoload-dev": {},
