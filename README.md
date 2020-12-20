@@ -5,6 +5,10 @@ PHPEncrypter is an open source library utilising LibSodium to encrypt data betwe
 1.0.2 - Added base64 mutual translator to allow for encryption of arrays and objects.
 
 # Installation
+```php
+composer require jaquarh/phpencrypter
+```
+
 [LibSodium Installation](http://php.net/manual/en/sodium.installation.php) requries enabling the extension in your php.ini configuration or by compiling your PHP source with the LibSodium configuration option.
 
 Once you have enabled the extension, you can now clone the repository. Simply create a class and use the Cipher.
