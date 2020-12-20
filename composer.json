@@ -1,6 +1,6 @@
 {
     "name": "jaquarh/phpencrypter",
-    "type": "project",
+    "type": "library",
     "description": "Encrypt and Sign data in PHP with ease",
     "keywords": [
         "encryption",
