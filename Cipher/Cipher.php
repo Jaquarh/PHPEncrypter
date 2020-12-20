@@ -9,7 +9,7 @@ namespace Cipher;
  * @description Container for LibSodium extension to allow for robust encryption and signing.
  */
 
-use Exception;
+use \Exception;
 
 trait Cipher
 {
@@ -24,10 +24,8 @@ trait Cipher
      */
     protected function issueKeys()
     {
-        $pki = sodium_crypto_box_keypair();
-
         return (object) [
-            'private' => sodium_crypto_box_secretkey($pki),
+            'private' => sodium_crypto_box_secretkey(($pki = sodium_crypto_box_keypair())),
             'public' => sodium_crypto_box_publickey($pki)
         ];
     }
@@ -35,9 +33,9 @@ trait Cipher
     /**
      * Encrypts a message based on a 3rd parties public key and 1st party private key.
      * V2 uses base64 mutual translator for arrays and objects to be encrypted.
-     * @param $public
-     * @param $private
-     * @param $message
+     * @param string $public
+     * @param string $private
+     * @param mixed $message
      * @return object
      * @throws Exception
      */
@@ -93,10 +91,8 @@ trait Cipher
      */
     protected function issueSignatureKeys()
     {
-        $pki = sodium_crypto_sign_keypair();
-
         return (object) [
-            'private' => sodium_crypto_sign_secretkey($pki),
+            'private' => sodium_crypto_sign_secretkey(($pki = sodium_crypto_sign_keypair())),
             'public'  => sodium_crypto_sign_publickey($pki),
         ];
     }
